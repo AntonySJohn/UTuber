@@ -1,6 +1,5 @@
 from pytube import YouTube
 import os
-#Testing
 print("Paste video URL:")
 URL = input()
 #yt = YouTube("https://www.youtube.com/watch?v=nE0iffq9p0o")
