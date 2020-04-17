@@ -4,7 +4,7 @@ Steps to be followed :
 
 1. Fork and Clone this repo to your device 
 
-2. open your terminal and go to the directory in which cloned repo is stored
+2. Open your terminal and go to the directory in which cloned repo is stored
 
 3. <i>pip install pytube3</i>
 
