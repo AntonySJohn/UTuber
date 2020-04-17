@@ -125,3 +125,5 @@ dmypy.json
 .pyre/
 /videotests/*
 /.vscode/*
+/test2.py
+/playlist.py

@@ -1,23 +1,23 @@
 from pytube import YouTube
+import path
+import exceptions
 import os
+import res_fps
 print("Paste video URL:")
 URL = input()
-yt = YouTube(URL)
-title = yt.title
-path0 = 'videotests/UTuber'
+print("Please wait...")
 try:
-    os.mkdir(path0)
+    yt = YouTube(URL)
 except:
-    pass
-path = path0+'/'+title
-list = yt.streams.filter(progressive=True,file_extension="mp4").first()
-flag = 1
-try:
-    os.mkdir(path)
-except:
-    check = path+'/'+title+'.mp4'
-    if(os.path.isfile(check)):
-        print("\nVideo with same name exists in directory!!!\n")
-        flag = 0
-if(list.download(path) and flag==1):
+    exceptions.check(URL)
+#resval,fpsval = res(yt)
+resval = res_fps.res(yt)
+video = yt.streams.filter(file_extension="mp4",resolution=resval).first()
+path = path.mkdir(yt)
+if(path=="already exits"):
+    exit()
+if(video.download(path)):
     print("\nDownload success!!!\n")
+else:
+    print("An unfortunate error has occured...\n")
+
