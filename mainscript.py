@@ -10,13 +10,9 @@ try:
     yt = YouTube(URL)
 except:
     exceptions.check1(URL)
-#resval,fpsval = res(yt)
 resval = res_fps.res(yt)
-#print(yt.streams.filter(file_extension="mp4",resolution=resval).first(),"\n")
-#print(yt.streams.filter(file_extension="mp4",only_audio=True))
 video = yt.streams.filter(file_extension="mp4",resolution=resval,).first()
 path1,title = path.mkdirectory(yt)
-#print(path)
 if(path1=="already exists"):
     exit()
 try:

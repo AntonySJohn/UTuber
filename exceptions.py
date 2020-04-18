@@ -18,7 +18,6 @@ def check1(URL):
     exit()
 
 def check2(path,title):
-    #os.mkdir(path)
     try:
         os.mkdir(path)
     except FileExistsError:
@@ -28,7 +27,6 @@ def check2(path,title):
         print("The directory entered is incorrect!!!Downloading in working directory...")
         return("",title)
     except:
-        #print("Aha")
         return("",title)
 
 if(__name__=='__main__'):
