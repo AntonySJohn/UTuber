@@ -14,9 +14,8 @@ def res(obj):
             count = count+1
     index = int(input())-1
     index2 = available_resolutions[index]
-    res = resolutions[index2]
     #Frame rate selection required
-    return(res)
+    return(resolutions[index2])
 if(__name__=='__main__'):
     URL = input()
     yt = YouTube(URL)
