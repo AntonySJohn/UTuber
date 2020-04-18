@@ -23,6 +23,9 @@ def mkdir(obj,playlistname="",fileformat='.mp4'):
         if(os.path.isfile(check)):
             print("\nVideo with same name exists in directory!!!\n")    
             return("already exits")
+        else:
+            print("Error in assigning directory!!!Downloading in current directory instead..)
+            path = "//"
     return(path)
 
 if (__name__=='__main__'):
