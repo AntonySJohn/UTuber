@@ -1,33 +1,44 @@
 import os
+import exceptions
 from pytube import YouTube
-def mkdir(obj,playlistname="",fileformat='.mp4'):
+def mkdirectory(obj,playlistname="",fileformat='.mp4'):
     title = obj.title
-    print("Would you prefer a custom download directory?(Y/N)")
+    for i in range(len(title)):
+        c = title[i]
+        if(c=="\\" or c=='/' or c==':' or c=='*' or c=='?' or c== '"'or c=='<' or c=='>' or c=='|'):
+            print("There is an exceptional character in the title of the video. Enter custom title...")
+            title = input()
+            break
+    print("Would you prefer a custom download directory for the video file?(Y/N)")
     customdir = input()
+    #print(customdir)
     if(customdir=='Y' or customdir=='y'):
-        print("Enter path")
+        print("Where would you like to download to?")
         path0 = input()
-        print(path0)
+        #print(path0)
     else:
-        path0 = 'videotests/UTuber'
+        path0 = 'videotests\\UTuber'
+    try:
+        os.mkdir(path0)
+    except:
+        pass
     if(len(playlistname)>0):
-        path0 = path0+'/'+playlistname
-        path = path0+'/'
+        path0 = path0+'\\'+playlistname
+        path = path0+'\\'
     else:
-        path = path0+'/'+title
-        print(path)
+        path = path0+'\\'+title
+    #os.mkdir(path)
     try:
         os.mkdir(path)
     except:
-        check = path+'/'+title+fileformat
-        if(os.path.isfile(check)):
-            print("\nVideo with same name exists in directory!!!\n")    
-            return("already exits")
-    return(path)
+        exceptions.check2(path,title)
+    return(path,title)
 
 if (__name__=='__main__'):
     URL = input()
     yt = YouTube(URL)
-    playlistname = input()
-    mkdir(yt,playlistname)
+    playlistname = ""
+    #playlistname = input()
+    path0,title=mkdirectory(yt,playlistname)
+    print(path0,"\n",title)
     

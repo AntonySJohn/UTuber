@@ -1,5 +1,6 @@
 import pytube
-def check(URL):
+import os
+def check1(URL):
     try:
         yt = pytube.YouTube(URL)
     except pytube.exceptions.RegexMatchError:
@@ -15,6 +16,20 @@ def check(URL):
     except:
         print("Unfortunately, an error occured...")
     exit()
+
+def check2(path,title):
+    #os.mkdir(path)
+    try:
+        os.mkdir(path)
+    except FileExistsError:
+        print("\nVideo with same name exists in directory!!!\n") 
+        return("already exists",title)
+    except FileNotFoundError:
+        print("The directory entered is incorrect!!!Downloading in working directory...")
+        return("",title)
+    except:
+        #print("Aha")
+        return("",title)
 
 if(__name__=='__main__'):
     URL = input()
