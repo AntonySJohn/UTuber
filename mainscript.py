@@ -11,7 +11,7 @@ try:
 except:
     exceptions.check1(URL)
 resval = res_fps.res(yt)
-video = yt.streams.filter(file_extension="mp4",resolution=resval,).first()
+video = yt.streams.filter(file_extension="mp4",resolution=resval).first()
 path1,title = path.mkdirectory(yt)
 if(path1=="already exists"):
     exit()

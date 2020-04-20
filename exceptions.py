@@ -14,7 +14,7 @@ def check1(URL):
     except pytube.exceptions.LiveStreamError:
         print("b r u h....it's a live stream...")
     except:
-        print("Unfortunately, an error occured...")
+        print("Unfortunately, an error occured...Check your internet connection")
     exit()
 
 def check2(path,title):

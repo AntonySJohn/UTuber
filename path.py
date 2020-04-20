@@ -15,7 +15,7 @@ def mkdirectory(obj,playlistname="",fileformat='.mp4'):
         print("Where would you like to download to?")
         path0 = input()
     else:
-        path0 = 'videotests\\UTuber'
+        path0 = 'UTuber'
     try:
         os.mkdir(path0)
     except:
@@ -28,7 +28,7 @@ def mkdirectory(obj,playlistname="",fileformat='.mp4'):
     try:
         os.mkdir(path)
     except:
-        exceptions.check2(path,title)
+        path,title = exceptions.check2(path,title)
     return(path,title)
 
 if (__name__=='__main__'):
@@ -37,4 +37,3 @@ if (__name__=='__main__'):
     playlistname = ""
     path0,title=mkdirectory(yt,playlistname)
     print(path0,"\n",title)
-    
