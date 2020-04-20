@@ -1,4 +1,4 @@
-# Youtube downloader using pytube
+# YouTube downloader using the pytube library
 
 Steps to be followed :
 
