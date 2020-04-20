@@ -2,10 +2,8 @@
 
 Steps to be followed :
 
-1. Fork and Clone this repo to your device 
+1. Clone this repo
 
-2. Open your terminal and go to the directory in which cloned repo is stored
+2. <i>pip install pytube3</i>
 
-3. <i>pip install pytube3</i>
-
-4. Run mainscript.py
+3. Run mainscript.py
