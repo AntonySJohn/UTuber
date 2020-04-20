@@ -1,12 +1,15 @@
 import pytube
 import os
-def check1(URL):
+def check1(URL,isplaylist=False):
     try:
-        yt = pytube.YouTube(URL)
+        if(isplaylist==False):
+            yt = pytube.YouTube(URL)
+        else:
+            yt = pytube.Playlist(URL)
     except pytube.exceptions.RegexMatchError:
-        print('Could not find video!!!')
+        print('URL could not be found!!!')
     except pytube.exceptions.ExtractError:
-        print ('An extraction error occurred for the video!!!')
+        print ('An extraction error occurred!!!')
     except pytube.exceptions.VideoUnavailable:
         print('The video is unavailable!!!')
     except KeyError:
@@ -15,14 +18,20 @@ def check1(URL):
         print("b r u h....it's a live stream...")
     except:
         print("Unfortunately, an error occured...Check your internet connection")
-    exit()
+    if(isplaylist==False):
+        exit()
 
-def check2(path,title):
+def check2(path,title,isplaylist=False):
     try:
         os.mkdir(path)
     except FileExistsError:
-        print("\nVideo with same name exists in directory!!!\n") 
-        return("already exists",title)
+        #print("\nVideo with same name exists in directory!!!\n")
+        """if(isplaylist==False):
+            checkfilepath = path+"\\"+title+".mp4" 
+            if(os.path.exists(checkfilepath)==True):
+                print("\nVideo with same name exists in directory!!!\n")
+                return("already exists",title)"""
+        return(path,title)
     except FileNotFoundError:
         print("The directory entered is incorrect!!!Downloading in working directory...")
         return("",title)
