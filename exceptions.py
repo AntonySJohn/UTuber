@@ -25,12 +25,6 @@ def check2(path,title,isplaylist=False):
     try:
         os.mkdir(path)
     except FileExistsError:
-        #print("\nVideo with same name exists in directory!!!\n")
-        """if(isplaylist==False):
-            checkfilepath = path+"\\"+title+".mp4" 
-            if(os.path.exists(checkfilepath)==True):
-                print("\nVideo with same name exists in directory!!!\n")
-                return("already exists",title)"""
         return(path,title)
     except FileNotFoundError:
         print("The directory entered is incorrect!!!Downloading in working directory...")
