@@ -18,8 +18,6 @@ def single_download(isplaylist=False,URL=None,path1=None,res_setting=None):
         resval = res_fps.res(yt)
         path1,title0 = path.mkdirectory(yt.title)
         title = title0 + " [" + resval + "]"
-        """if(path1=="already exists"):
-            return()"""
         video = yt.streams.filter(file_extension="mp4",resolution=resval,progressive=True).first()
     else:
         title = path.title_check(yt.title)
@@ -27,11 +25,8 @@ def single_download(isplaylist=False,URL=None,path1=None,res_setting=None):
             video = yt.streams.filter(file_extension="mp4",progressive=True).last()
         else:
             video = yt.streams.filter(file_extension="mp4",progressive=True).first()
-    #print("here")
     try:
-        #print("here2")
         checkfilepath = path1+"\\"+title+".mp4"
-        #print(checkfilepath)
         if(os.path.exists(checkfilepath)==False):
             if(len(path1)>0):
                 video.download(path1,title)
